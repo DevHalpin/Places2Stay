@@ -3,10 +3,11 @@ import {
   Text as RNText,
   TextProps as RNTextProps,
   TextStyle as RNTextStyleProps,
+  ViewStyle as RNViewStyleProps,
 } from 'react-native';
 
 type CustomProps = {
-  styles?: RNTextStyleProps;
+  styles?: RNTextStyleProps & RNViewStyleProps;
   variant?: string;
 };
 
