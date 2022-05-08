@@ -20,6 +20,30 @@ import Stay from './src/screen/Stay';
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
+export const config = {
+  screens: {
+    Tab: {
+      screens: {
+        Home: {
+          screens: {
+            Home: 'home',
+          },
+        },
+        Stay: {
+          screens: {
+            Stay: 'stay',
+          },
+        },
+      },
+    },
+  },
+};
+
+const linking = {
+  prefixes: ['places2stay://'],
+  config,
+};
+
 const TabScreen = () => (
   <Tab.Navigator>
     <Tab.Screen name="Stay" component={Stay} key="Stay" />
@@ -29,7 +53,7 @@ const TabScreen = () => (
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer linking={linking}>
       <Stack.Navigator>
         <Stack.Group>
           <Stack.Screen name="Tab" component={TabScreen} key="Tab" />

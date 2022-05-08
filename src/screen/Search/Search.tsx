@@ -47,22 +47,21 @@ const Search: React.FC = () => {
     );
     onSearchResult(citySearchResult);
   }, [searchInput]);
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.searchInputContainer}>
         <TextInput
           style={styles.searchInput}
-          placeholder={'Try Boston'}
+          placeholder={'Try "Boston"'}
           onChangeText={onSearchInput}
         />
       </View>
       <ScrollView style={styles.searchResultsScrollView}>
-        {searchResult.map(city => {
+        {searchResult.map(city => (
           <View style={styles.searchResultContainer}>
             <Text style={styles.searchResult}>{city}</Text>
-          </View>;
-        })}
+          </View>
+        ))}
       </ScrollView>
     </SafeAreaView>
   );
