@@ -15,7 +15,11 @@ const Stay: React.FC = () => {
           <Text styles={styles.location}>Old Montreal, Montreal</Text>
           <Text styles={styles.dates}>Oct. 29, 2021 - Oct. 31, 2021</Text>
           {stayMockData.details.map(detail => (
-            <StayDetail sectionTitle={detail.title} items={detail.items} />
+            <StayDetail
+              key={detail.id}
+              sectionTitle={detail.title}
+              items={detail.items}
+            />
           ))}
         </View>
       </ScrollView>

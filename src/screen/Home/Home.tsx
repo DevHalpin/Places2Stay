@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
+import {Button, SafeAreaView, ScrollView, StyleSheet, View} from 'react-native';
 import homeMockData from './components/homeMockData';
 import PlaceCta from './components/PlaceCta';
 import SectionHeader from './components/SectionHeader';
@@ -13,8 +13,8 @@ const Home: React.FC = ({navigation}) => {
           styles={StyleSheet.flatten([styles.spacing, styles.search])}
           onPress={() => navigation.navigate('Search')}
         />
-        {homeMockData.sections.map(section => (
-          <>
+        {homeMockData.sections.map((section, index) => (
+          <View key={`${section.title}-${index}`}>
             <SectionHeader
               title={section.title}
               description={section.description}
@@ -22,6 +22,7 @@ const Home: React.FC = ({navigation}) => {
             />
             {section.places.map(place => (
               <PlaceCta
+                key={place.id}
                 styles={styles.spacing}
                 imageLabel={place.imageLabel}
                 image={place.image}
@@ -29,7 +30,7 @@ const Home: React.FC = ({navigation}) => {
                 location={place.location}
               />
             ))}
-          </>
+          </View>
         ))}
       </ScrollView>
     </SafeAreaView>

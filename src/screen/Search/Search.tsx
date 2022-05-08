@@ -11,6 +11,7 @@ import searchMockData from './searchMockData';
 
 const styles = StyleSheet.create({
   container: {
+    marginVertical: 16,
     marginHorizontal: 16,
   },
   searchInput: {
@@ -37,13 +38,18 @@ const styles = StyleSheet.create({
   searchResultsScrollView: {height: '90%'},
 });
 
+type City = {
+  id: number;
+  label: string;
+};
+
 const Search: React.FC = () => {
   const [searchInput, onSearchInput] = useState<string>('');
-  const [searchResult, onSearchResult] = useState<string[]>([]);
+  const [searchResult, onSearchResult] = useState<City[]>([]);
 
   useEffect(() => {
-    const citySearchResult = searchMockData.cities.filter(city =>
-      city.toLowerCase().includes(searchInput.toLowerCase()),
+    const citySearchResult = searchMockData.cities.filter(({label}) =>
+      label.toLowerCase().includes(searchInput.toLowerCase()),
     );
     onSearchResult(citySearchResult);
   }, [searchInput]);
@@ -58,8 +64,8 @@ const Search: React.FC = () => {
       </View>
       <ScrollView style={styles.searchResultsScrollView}>
         {searchResult.map(city => (
-          <View style={styles.searchResultContainer}>
-            <Text style={styles.searchResult}>{city}</Text>
+          <View style={styles.searchResultContainer} key={city.id}>
+            <Text style={styles.searchResult}>{city.label}</Text>
           </View>
         ))}
       </ScrollView>

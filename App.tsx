@@ -45,7 +45,7 @@ const linking = {
 };
 
 const TabScreen = () => (
-  <Tab.Navigator>
+  <Tab.Navigator screenOptions={{headerShown: false}}>
     <Tab.Screen name="Stay" component={Stay} key="Stay" />
     <Tab.Screen name="Home" component={Home} key="Home" />
   </Tab.Navigator>
@@ -54,7 +54,7 @@ const TabScreen = () => (
 const App = () => {
   return (
     <NavigationContainer linking={linking}>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Group>
           <Stack.Screen name="Tab" component={TabScreen} key="Tab" />
         </Stack.Group>

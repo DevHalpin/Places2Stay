@@ -5,6 +5,7 @@ import Text from '../../../../components/base/text';
 type item = {
   itemLabel: string;
   itemDetail: string;
+  id: number;
 };
 
 type StayDetailProps = {
@@ -24,7 +25,7 @@ const StayDetail: React.FC<StayDetailProps> = ({sectionTitle, items}) => {
       </View>
       <View style={styles.itemContainer}>
         {items?.map(item => (
-          <View style={styles.item}>
+          <View style={styles.item} key={item.id}>
             <Text>{item.itemLabel}</Text>
             <Text>{item.itemDetail}</Text>
           </View>
