@@ -1,17 +1,18 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet} from 'react-native';
-import Text from '../../components/base/text';
+import {Button, SafeAreaView, ScrollView, StyleSheet} from 'react-native';
 import homeMockData from './components/homeMockData';
 import PlaceCta from './components/PlaceCta';
 import SectionHeader from './components/SectionHeader';
 
-const Home: React.FC = () => {
+const Home: React.FC = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView showsHorizontalScrollIndicator={false}>
-        <Text styles={StyleSheet.flatten([styles.spacing, styles.search])}>
-          Search Input
-        </Text>
+        <Button
+          title="Search Input"
+          styles={StyleSheet.flatten([styles.spacing, styles.search])}
+          onPress={() => navigation.navigate('Search')}
+        />
         {homeMockData.sections.map(section => (
           <>
             <SectionHeader
