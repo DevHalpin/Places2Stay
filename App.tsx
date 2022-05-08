@@ -9,23 +9,24 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
-// import Home from './src/screen/Home';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Home from './src/screen/Home';
 import Search from './src/screen/Search';
-// import Stay from './src/screen/Stay';
+import Stay from './src/screen/Stay';
+
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      {/* <Home /> */}
-      {/* <Stay /> */}
-      <Search />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Stay" component={Stay} key="Stay" />
+        <Tab.Screen name="Home" component={Home} key="Home" />
+        <Tab.Screen name="Search" component={Search} key="Search" />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {marginHorizontal: 8},
-});
 
 export default App;
