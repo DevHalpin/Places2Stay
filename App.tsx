@@ -10,12 +10,14 @@
 
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import Home from './src/screen/Home';
+// import Home from './src/screen/Home';
+import Stay from './src/screen/Stay';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Home />
+      {/* <Home /> */}
+      <Stay />
     </SafeAreaView>
   );
 };

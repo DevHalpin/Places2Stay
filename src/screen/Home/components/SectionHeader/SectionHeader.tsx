@@ -12,12 +12,14 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   title,
   description,
   styles: style,
-}) => (
-  <View style={style}>
-    <Text styles={styles.text}>{title}</Text>
-    <Text>{description}</Text>
-  </View>
-);
+}) => {
+  return (
+    <View style={style}>
+      <Text styles={styles.text}>{title}</Text>
+      <Text>{description}</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   text: {fontSize: 24, letterSpacing: 1, marginBottom: 8},

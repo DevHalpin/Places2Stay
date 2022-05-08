@@ -8,7 +8,7 @@ import {
 import Text from '../../../../components/base/text';
 
 type PlaceCtaProps = {
-  image?: number;
+  image: number;
   title: string;
   location?: string;
   imageLabel?: string;
